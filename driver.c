@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     int priority;
     int burst;
     struct node *nhead = NULL;
-    struct node *test=NULL;
+    //struct node *test=NULL;
     in = fopen(argv[1],"r");
 
     while (fgets(task,SIZE,in) != NULL) {
