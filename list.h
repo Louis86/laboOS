@@ -1,7 +1,8 @@
 /**
  * list data structure containing the tasks in the system
  */
-
+#ifndef NODE_H
+#define NODE_H
 #include "task.h"
 
 struct node {
@@ -13,3 +14,5 @@ struct node {
 void insert(struct node **head, Task *task);
 void delete(struct node **head, Task *task);
 void traverse(struct node *head);
+int poplast(struct node **head, struct node **topop);
+#endif

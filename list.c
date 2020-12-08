@@ -1,7 +1,7 @@
 /**
  * Various list operations
  */
- 
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -12,14 +12,33 @@
 
 // add a new task to the list of tasks
 void insert(struct node **head, Task *newTask) {
-    // add the new task to the list 
+    // add the new task to the list
     struct node *newNode = malloc(sizeof(struct node));
 
     newNode->task = newTask;
-    newNode->next = *head;
-    *head = newNode;
+    newNode->next = (*head);
+    (*head) = newNode;
 }
+ int poplast(struct node **head, struct node **topop)
+ {
+   struct node *temp;
+   struct node *prev;
+   temp = *head;
+   if(temp->next==NULL){
+     topop=head;
+     return(1); //indicate last pop
+   }
+   prev=temp;
+   temp=temp->next;
+   while (temp->next != NULL) {
+      prev=temp;
+      temp=temp->next;
+   }
+   prev->next=NULL;
+   (*topop)=temp;
+   return(0);
 
+ }
 // delete the selected task from the list
 void delete(struct node **head, Task *task) {
     struct node *temp;
