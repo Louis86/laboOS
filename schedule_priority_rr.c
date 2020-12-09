@@ -86,6 +86,8 @@ void schedule()
         }
 
     }
+    printf("%f time waiting \n", (float)time);
+    printf("%f number processus \n", j+1);
     float waiting= (float)time/(float)(j+1);
     printf("%f Average waiting time \n", waiting);
 }
