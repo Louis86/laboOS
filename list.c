@@ -66,6 +66,27 @@ void delete(struct node **head, Task *task) {
     }
 }
 
+
+struct node* getByPriority(struct node *head)
+{
+	struct node *temp = head;
+	struct node *priority = malloc(sizeof(struct node));
+	priority = head;
+	while(temp != NULL)
+	{
+		if(temp->task->priority > priority->task->priority)
+		{
+			priority = temp;
+			temp = temp->next;
+		}
+		else
+		{
+			temp = temp->next;
+		}
+	}
+return priority;
+}
+
 // traverse the list
 void traverse(struct node *head) {
     struct node *temp;
