@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     char *name;
     int priority;
     int burst;
-    struct node *nhead = NULL;
+    //struct node *nhead = NULL;
     //struct node *test=NULL;
     in = fopen(argv[1],"r");
 
