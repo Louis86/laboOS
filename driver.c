@@ -37,8 +37,8 @@ int main(int argc, char *argv[])
 
 
         // add the task to the scheduler's list of tasks
-        add(name,priority,burst, &nhead);
-
+        //add(name,priority,burst, &nhead);
+          add(name,priority,burst);
         //printf("[%s] [%d] [%d]\n",nhead->task->name, nhead->task->priority, nhead->task->burst);
 
         free(temp);
@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
     fclose(in);
 
     // invoke the scheduler
-    schedule(nhead);
-
+    //schedule(nhead);
+    schedule();
     return 0;
 }
