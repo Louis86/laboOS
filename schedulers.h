@@ -7,3 +7,8 @@ void add(char *name, int priority, int burst, struct node **head);
 
 // invoke the scheduler
 void schedule(struct node *head);
+
+
+void add(char *name, int priority, int burst);
+
+void schedule();

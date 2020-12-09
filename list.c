@@ -19,6 +19,8 @@ void insert(struct node **head, Task *newTask) {
     newNode->next = (*head);
     (*head) = newNode;
 }
+
+
  int poplast(struct node **head, struct node **topop)
  {
    struct node *temp;
@@ -39,6 +41,8 @@ void insert(struct node **head, Task *newTask) {
    return(0);
 
  }
+
+
 // delete the selected task from the list
 void delete(struct node **head, Task *task) {
     struct node *temp;
