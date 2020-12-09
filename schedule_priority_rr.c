@@ -9,6 +9,9 @@
 
 struct node *head = NULL;
 
+//Turnaround time = Burst time + Waiting time
+//or
+//Turnaround time = Exit time - Arrival time
 // pointer to the struct containing the next task
 struct node *tmp;
 
@@ -35,12 +38,15 @@ void add(char *name, int priority, int burst) {
  */
 void schedule()
 {
+    int time=0;
+    int j=0;
     Task *current;
     //Task *previous;
 
     tmp = head;
 
     while (head != NULL) {
+        j++;
         current = pickNextTask();
         if (cnt > 1){
             //there are duplicate priorities, run as normal round robin
@@ -55,14 +61,14 @@ void schedule()
             if (current->burst > QUANTUM) {
 
                 run(current, QUANTUM);
-
+                time+=QUANTUM;
                 current->burst -= QUANTUM;
                 delete(&head, current);
                 insert_tail(&head, current);
             }
             else {
                 run(current, current->burst);
-
+                time+=current->burst;
                 current->burst = 0;
 
                 printf("Task %s finished.\n",current->name);
@@ -72,14 +78,16 @@ void schedule()
         else{
             //no duplicate priorities, run as normal round robin
             run(current, current->burst);
+            time+=current->burst;
             current->burst = 0;
             printf("Task %s finished.\n",current->name);
             delete(&head, current);
 
         }
+
     }
-
-
+    float waiting= (float)time/(float)(j+1);
+    printf("%f Average waiting time \n", waiting);
 }
 
 /*
