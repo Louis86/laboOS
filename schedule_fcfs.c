@@ -38,5 +38,5 @@ float waiting= (float)time/(float)(j+1);
 //free(head);
 float turn= (float)time/(float)(j+1);
 printf("%f Average waiting time \n", waiting);
-//printf("%f Average turnaround time \n", turn);
+printf("%f Average turnaround time \n", turn);
 }
