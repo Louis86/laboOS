@@ -32,7 +32,7 @@ void schedule()
     j++;
 	}
 float waiting= (float)time/(float)(j+1);
-time+=task->burst;
+//time+=task->burst;
 //free(head->task->name);
 //free(head->task);
 //free(head);
